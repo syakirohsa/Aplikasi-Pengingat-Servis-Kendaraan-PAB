@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ServisKu Dark Palette -->
+    <color name="bg_color">#0B1220</color>
+    <color name="surface_color">#121A2B</color>
+    <color name="surface2_color">#1A2438</color>
+    <color name="ink_color">#E8EDF7</color>
+    <color name="muted_color">#A3AEC4</color>
+    <color name="line_color">#26324A</color>
+    <color name="accent_color">#6EA8FF</color>
+    <color name="on_accent_color">#0B1220</color>
+    <color name="red_color">#FF8A7E</color>
+    <color name="red_bg_color">#3A1B19</color>
+    <color name="green_color">#5FD39A</color>
+    <color name="green_bg_color">#14301F</color>
+
+    <!-- Vehicle Colors -->
+    <color name="col_hitam">#1F2937</color>
+    <color name="col_putih">#F3F4F6</color>
+    <color name="col_silver">#CBD5E1</color>
+    <color name="col_abu">#6B7280</color>
+    <color name="col_merah">#DC2626</color>
+    <color name="col_oranye">#EA580C</color>
+    <color name="col_kuning">#EAB308</color>
+    <color name="col_hijau">#16A34A</color>
+    <color name="col_biru">#2563EB</color>
+    <color name="col_cokelat">#78350F</color>
+</resources>

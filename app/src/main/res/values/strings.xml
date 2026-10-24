@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Pengingat Servis Kendaraan App</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_riwayat">Riwayat</string>
+    <string name="title_profil">Profil</string>
+    <string name="title_notifikasi">Notifikasi</string>
+    <string name="title_tambah_servis">Tambah Servis</string>
+    <string name="title_detail_servis">Detail Servis</string>
+    <string name="title_edit_profil">Edit Profil</string>
+    <string name="title_identitas_kendaraan">Identitas Motor</string>
+    <string name="title_pengaturan">Pengaturan</string>
 </resources>

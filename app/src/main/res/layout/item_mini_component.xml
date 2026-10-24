@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="12dp">
+
+    <TextView
+        android:id="@+id/tv_mini_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Kampas Rem Depan"
+        android:textColor="@color/ink_color"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_mini_status_chip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_chip_ok"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="3dp"
+        android:text="Aman"
+        android:textColor="@color/green_color"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_mini_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sisa 1.200 km"
+        android:textColor="@color/muted_color"
+        android:textSize="14sp" />
+
+</LinearLayout>
