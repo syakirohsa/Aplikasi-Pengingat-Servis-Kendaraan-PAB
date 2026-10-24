@@ -2,4 +2,30 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- ServisKu Light Palette -->
+    <color name="bg_color">#EEF2F8</color>
+    <color name="surface_color">#FFFFFF</color>
+    <color name="surface2_color">#F4F7FB</color>
+    <color name="ink_color">#14213D</color>
+    <color name="muted_color">#5B6475</color>
+    <color name="line_color">#E4E9F2</color>
+    <color name="accent_color">#1E6FD9</color>
+    <color name="on_accent_color">#FFFFFF</color>
+    <color name="red_color">#C42418</color>
+    <color name="red_bg_color">#FDECEA</color>
+    <color name="green_color">#167A43</color>
+    <color name="green_bg_color">#E6F5EC</color>
+
+    <!-- Vehicle Colors -->
+    <color name="col_hitam">#1F2937</color>
+    <color name="col_putih">#F3F4F6</color>
+    <color name="col_silver">#CBD5E1</color>
+    <color name="col_abu">#6B7280</color>
+    <color name="col_merah">#DC2626</color>
+    <color name="col_oranye">#EA580C</color>
+    <color name="col_kuning">#EAB308</color>
+    <color name="col_hijau">#16A34A</color>
+    <color name="col_biru">#2563EB</color>
+    <color name="col_cokelat">#78350F</color>
 </resources>
