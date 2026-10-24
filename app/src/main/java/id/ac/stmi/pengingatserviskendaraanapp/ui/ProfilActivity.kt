@@ -109,12 +109,12 @@ class ProfilActivity : AppCompatActivity() {
                     finish()
                     true
                 }
-                //R.id.navigation_riwayat -> {
-                    //startActivity(Intent(this, RiwayatActivity::class.java))
-                   // overridePendingTransition(0, 0)
-                    //finish()
-                    //true
-               // }
+                R.id.navigation_riwayat -> {
+                    startActivity(Intent(this, RiwayatActivity::class.java))
+                   overridePendingTransition(0, 0)
+                    finish()
+                    true
+               }
                 R.id.navigation_profil -> true
                 else -> false
             }
