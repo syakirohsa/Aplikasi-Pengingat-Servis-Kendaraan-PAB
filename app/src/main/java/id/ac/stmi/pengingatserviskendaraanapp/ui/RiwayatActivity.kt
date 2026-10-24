@@ -21,6 +21,7 @@ import id.ac.stmi.pengingatserviskendaraanapp.model.ServiceRecord
 import id.ac.stmi.pengingatserviskendaraanapp.model.Vehicle
 import id.ac.stmi.pengingatserviskendaraanapp.util.ServiceCalculator
 import id.ac.stmi.pengingatserviskendaraanapp.util.WindowInsetUtil
+import kotlin.collections.get
 
 class RiwayatActivity : AppCompatActivity() {
 
@@ -39,26 +40,14 @@ class RiwayatActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_riwayat)
 
-        // TODO: Buka komentar ini jika WindowInsetUtil dari Syakiroh sudah siap
-        /*
-        WindowInsetUtil.applySystemBarInsets(
-            findViewById(R.id.root_riwayat),
-            applyTop = true,
-            applyBottom = false
-        )
-        */
 
         repository = ServisRepository(this)
         currentUserEmail = repository.currentAccountEmail
 
         if (currentUserEmail.isNullOrEmpty()) {
-            // TODO: Buka komentar ini jika LoginActivity dari Rochita sudah siap
-            // startActivity(Intent(this, LoginActivity::class.java))
-            // finish()
-            // return
-
-            // Sementara, kita biarkan tembus dulu agar bisa dites
-            Toast.makeText(this, "Belum login (LoginActivity belum ada)", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
         }
 
         btnAdd = findViewById(R.id.btn_add_from_history)
@@ -91,10 +80,9 @@ class RiwayatActivity : AppCompatActivity() {
                 }
                 R.id.navigation_riwayat -> true
                 R.id.navigation_profil -> {
-                    // TODO: Buka komentar ini jika ProfilActivity dari Rochita sudah siap
-                    // startActivity(Intent(this, ProfilActivity::class.java))
-                    // overridePendingTransition(0, 0)
-                    // finish()
+                    startActivity(Intent(this, ProfilActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    finish()
                     true
                 }
                 else -> false
