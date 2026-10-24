@@ -1,10 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/root_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailActivity">
+    android:background="@color/bg_color"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:background="@color/surface_color">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Kembali"
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/ink_color"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Detail Servis"
+            android:textColor="@color/ink_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"/>
+
+    <!-- Content Scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Detail Rows -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Komponen" android:textColor="@color/muted_color" android:textSize="14sp"/>
+                <TextView android:id="@+id/tv_det_component" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Oli Mesin" android:textColor="@color/ink_color" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/line_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tanggal" android:textColor="@color/muted_color" android:textSize="14sp"/>
+                <TextView android:id="@+id/tv_det_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24 Sep 2026" android:textColor="@color/ink_color" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/line_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Odometer" android:textColor="@color/muted_color" android:textSize="14sp"/>
+                <TextView android:id="@+id/tv_det_odometer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12.000 km" android:textColor="@color/ink_color" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/line_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Catatan" android:textColor="@color/muted_color" android:textSize="14sp"/>
+                <TextView android:id="@+id/tv_det_notes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Servis di AHASS" android:textColor="@color/ink_color" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/line_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jadwal berikutnya" android:textColor="@color/muted_color" android:textSize="14sp"/>
+                <TextView android:id="@+id/tv_det_next_schedule" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="14.000 km atau 24 Nov 2026" android:textColor="@color/ink_color" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/line_color"/>
+
+            <!-- Info Target Servis Card -->
+            <LinearLayout
+                android:id="@+id/card_target_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_info_target_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target servis Oli Mesin"
+                    android:textColor="@color/muted_color"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tv_info_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Setiap 2.000 km atau 2 bulan"
+                    android:textColor="@color/ink_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_info_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_edittext"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="3dp"
+                    android:text="Paling sering"
+                    android:textColor="@color/muted_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_info_typical_range"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Kisaran umum: 2.000–4.000 km atau 2–3 bulan"
+                    android:textColor="@color/ink_color"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tv_info_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Servis paling utama, diganti paling rutin."
+                    android:textColor="@color/muted_color"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Action Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        android:background="@color/surface_color">
+
+        <Button
+            android:id="@+id/btn_share_service"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_button_outline"
+            android:text="Bagikan"
+            android:textColor="@color/ink_color"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_delete_service"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_button_outline"
+            android:text="Hapus"
+            android:textColor="@color/red_color"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</LinearLayout>
