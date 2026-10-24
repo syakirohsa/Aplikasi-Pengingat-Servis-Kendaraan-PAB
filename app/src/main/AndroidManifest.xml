@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
@@ -32,6 +34,21 @@
         <activity android:name=".ui.EditProfilActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.IdentitasKendaraanActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.PengaturanActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
-
+        <activity
+            android:name=".ui.TambahServisActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.RiwayatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.DetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.NotifikasiActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 </manifest>
