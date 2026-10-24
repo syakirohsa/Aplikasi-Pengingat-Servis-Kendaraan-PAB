@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_onboarding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_color"
+    android:padding="20dp">
+
+    <!-- Header Skip Button -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:id="@+id/btn_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:text="Lewati"
+            android:textColor="@color/accent_color"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"/>
+    </FrameLayout>
+
+    <!-- Slide Content Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Icon Container Circle -->
+        <FrameLayout
+            android:layout_width="132dp"
+            android:layout_height="132dp"
+            android:background="@drawable/bg_card"
+            android:backgroundTint="@color/surface2_color">
+            <ImageView
+                android:id="@+id/iv_onboarding_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_history"
+                app:tint="@color/accent_color"
+                android:contentDescription="Icon Onboarding"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_onboarding_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Catat servis motor"
+            android:textColor="@color/ink_color"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tv_onboarding_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Simpan riwayat servis tiap motor kamu di satu tempat."
+            android:textColor="@color/muted_color"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:textAlignment="center"/>
+
+        <!-- Dots Indicator -->
+        <LinearLayout
+            android:id="@+id/layout_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <!-- Dots added dynamically -->
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Button -->
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="Lanjut"
+        android:textColor="@color/on_accent_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"/>
+
+</LinearLayout>
