@@ -12,12 +12,14 @@ object WindowInsetUtil {
         val initialBottom = rootView.paddingBottom
 
         ViewCompat.setOnApplyWindowInsetsListener(rootView) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val sysBarsAndIme = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime()
+            )
             v.setPadding(
-                initialLeft + systemBars.left,
-                initialTop + systemBars.top,
-                initialRight + systemBars.right,
-                initialBottom + systemBars.bottom
+                initialLeft + sysBarsAndIme.left,
+                initialTop + sysBarsAndIme.top,
+                initialRight + sysBarsAndIme.right,
+                initialBottom + sysBarsAndIme.bottom
             )
             insets
         }

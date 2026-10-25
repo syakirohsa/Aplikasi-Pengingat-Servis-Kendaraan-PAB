@@ -3,9 +3,12 @@ package id.ac.stmi.pengingatserviskendaraanapp.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -21,12 +24,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var repository: ServisRepository
 
     private var isRegisterMode = false
+    private var isPasswordVisible = false
 
     private lateinit var tvSubtitle: TextView
     private lateinit var lblName: TextView
     private lateinit var etName: EditText
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
+    private lateinit var btnTogglePassword: ImageView
     private lateinit var tvError: TextView
     private lateinit var btnSubmit: Button
     private lateinit var btnSwitchMode: TextView
@@ -47,10 +52,15 @@ class LoginActivity : AppCompatActivity() {
         etName = findViewById(R.id.et_name)
         etEmail = findViewById(R.id.et_email)
         etPassword = findViewById(R.id.et_password)
+        btnTogglePassword = findViewById(R.id.btn_toggle_password)
         tvError = findViewById(R.id.tv_error)
         btnSubmit = findViewById(R.id.btn_login_submit)
         btnSwitchMode = findViewById(R.id.btn_switch_mode)
         tvDemoHint = findViewById(R.id.tv_demo_hint)
+
+        btnTogglePassword.setOnClickListener {
+            togglePasswordVisibility()
+        }
 
         btnSwitchMode.setOnClickListener {
             isRegisterMode = !isRegisterMode
@@ -63,6 +73,24 @@ class LoginActivity : AppCompatActivity() {
         }
 
         updateModeUi()
+    }
+
+    private fun togglePasswordVisibility() {
+        isPasswordVisible = !isPasswordVisible
+        val selectionStart = etPassword.selectionStart
+        val selectionEnd = etPassword.selectionEnd
+
+        if (isPasswordVisible) {
+            etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            btnTogglePassword.setImageResource(R.drawable.ic_eye)
+        } else {
+            etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            btnTogglePassword.setImageResource(R.drawable.ic_eye_off)
+        }
+
+        if (selectionStart >= 0 && selectionEnd >= 0) {
+            etPassword.setSelection(selectionStart, selectionEnd)
+        }
     }
 
     private fun updateModeUi() {

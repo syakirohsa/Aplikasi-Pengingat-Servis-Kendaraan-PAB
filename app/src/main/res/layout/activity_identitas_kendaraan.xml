@@ -44,9 +44,12 @@
         android:background="@color/line_color"/>
 
     <ScrollView
+        android:id="@+id/scroll_identitas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
         android:padding="20dp">
 
         <LinearLayout

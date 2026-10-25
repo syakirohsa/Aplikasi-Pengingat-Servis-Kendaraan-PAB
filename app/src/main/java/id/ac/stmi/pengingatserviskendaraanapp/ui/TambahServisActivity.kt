@@ -53,7 +53,9 @@ class TambahServisActivity : AppCompatActivity() {
         btnBack.setOnClickListener { finish() }
 
         // Setup Component Spinner
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, ComponentConstants.NAMES)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ComponentConstants.NAMES).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
         spComponent.adapter = adapter
 
         // Prefill component name if passed via Intent

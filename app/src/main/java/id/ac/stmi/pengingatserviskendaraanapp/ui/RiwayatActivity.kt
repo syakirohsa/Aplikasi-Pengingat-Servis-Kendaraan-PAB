@@ -40,6 +40,9 @@ class RiwayatActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_riwayat)
 
+        WindowInsetUtil.applySystemBarInsets(
+            findViewById(R.id.root_riwayat)
+        )
 
         repository = ServisRepository(this)
         currentUserEmail = repository.currentAccountEmail
