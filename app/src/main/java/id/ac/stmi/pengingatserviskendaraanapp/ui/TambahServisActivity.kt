@@ -115,6 +115,19 @@ class TambahServisActivity : AppCompatActivity() {
 
         val selectedComponent = spComponent.selectedItem.toString()
         val selectedVehicleId = repository.getSelectedVehicleId(email)
+        val vehicle = repository.getVehicles(email).find { it.id == selectedVehicleId }
+
+        if (vehicle == null) {
+            tvFormError.text = "Kendaraan tidak ditemukan"
+            return
+        }
+
+        if (odometerVal < vehicle.currentKm) {
+            tvFormError.text = "Tidak boleh lebih kecil dari km sebelumnya (${vehicle.currentKm})"
+            return
+        }
+
+        tvFormError.text = ""
         val notes = etNotes.text.toString().trim()
 
         val recordId = repository.generateRecordId()
@@ -130,8 +143,7 @@ class TambahServisActivity : AppCompatActivity() {
         repository.addServiceRecord(email, record)
 
         // Update vehicle odometer if higher
-        val vehicle = repository.getVehicles(email).find { it.id == selectedVehicleId }
-        if (vehicle != null && odometerVal > vehicle.currentKm) {
+        if (odometerVal > vehicle.currentKm) {
             vehicle.currentKm = odometerVal
             repository.saveVehicle(email, vehicle)
         }
