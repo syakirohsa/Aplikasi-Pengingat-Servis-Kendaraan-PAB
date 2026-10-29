@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="Demo: budi@email.com / 123456"
+            android:text="Demo: omarbaskara@email.com / 123456"
             android:textColor="@color/muted_color"
             android:textSize="12sp" />
 

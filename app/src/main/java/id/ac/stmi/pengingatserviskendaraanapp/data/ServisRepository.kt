@@ -31,13 +31,12 @@ class ServisRepository(context: Context) {
     }
 
     private fun seedDefaultData() {
-        val demoAcc = Account("budi@email.com", "123456", "Budi Santoso", null)
+        val demoAcc = Account("omarbaskara@email.com", "123456", "Omar Baskara", null)
         saveAccount(demoAcc)
-        currentAccountEmail = demoAcc.email
 
         val demoVehicle = Vehicle(
             id = 1,
-            name = "Si Merah",
+            name = "Marquez",
             type = "Vario 125",
             brand = "Honda",
             year = "2021",

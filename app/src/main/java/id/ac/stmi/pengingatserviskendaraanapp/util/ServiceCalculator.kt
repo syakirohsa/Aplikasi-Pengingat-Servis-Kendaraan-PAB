@@ -47,6 +47,20 @@ object ServiceCalculator {
         return Pair(nk, nd)
     }
 
+    private fun getEffectiveDays(r: ServiceRemainder): Double {
+        if (r.isNone) return Double.MAX_VALUE
+
+        val daysFromDate = r.sisaHari?.toDouble()
+        val daysFromKm = r.sisaKm?.let { it.toDouble() / 30.0 }
+
+        return when {
+            daysFromDate != null && daysFromKm != null -> minOf(daysFromDate, daysFromKm)
+            daysFromDate != null -> daysFromDate
+            daysFromKm != null -> daysFromKm
+            else -> Double.MAX_VALUE
+        }
+    }
+
     fun calculateReminders(
         vehicle: Vehicle,
         records: List<ServiceRecord>,
@@ -130,11 +144,11 @@ object ServiceCalculator {
             )
         }
 
-        val orderMap = mapOf(RemainderStatus.LATE to 0, RemainderStatus.SOON to 1, RemainderStatus.OK to 2)
-
         return out.sortedWith(
-            compareBy<ServiceRemainder> { if (it.isNone) 3 else orderMap[it.status] ?: 2 }
-                .thenByDescending { it.percentage }
+            compareBy<ServiceRemainder> { if (it.isNone) 2 else if (!it.isEnabled) 1 else 0 }
+                .thenBy { getEffectiveDays(it) }
+                .thenBy { it.nextDate ?: "9999-12-31" }
+                .thenBy { it.sisaKm ?: Int.MAX_VALUE }
         )
     }
 

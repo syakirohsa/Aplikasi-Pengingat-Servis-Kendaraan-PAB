@@ -12,7 +12,9 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import id.ac.stmi.pengingatserviskendaraanapp.MainActivity
 import id.ac.stmi.pengingatserviskendaraanapp.R
+import id.ac.stmi.pengingatserviskendaraanapp.data.ServisRepository
 import id.ac.stmi.pengingatserviskendaraanapp.util.WindowInsetUtil
 
 class OnboardingActivity : AppCompatActivity() {
@@ -41,6 +43,22 @@ class OnboardingActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val repository = ServisRepository(this)
+        val email = repository.currentAccountEmail
+        if (!email.isNullOrEmpty()) {
+            val vehicles = repository.getVehicles(email)
+            val intent = if (vehicles.isEmpty()) {
+                Intent(this, IdentitasKendaraanActivity::class.java)
+            } else {
+                Intent(this, MainActivity::class.java)
+            }
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+            return
+        }
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_onboarding)
 
