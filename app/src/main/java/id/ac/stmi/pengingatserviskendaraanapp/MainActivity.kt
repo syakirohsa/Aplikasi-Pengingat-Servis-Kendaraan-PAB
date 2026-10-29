@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvOdometerValue: TextView
     private lateinit var btnEditOdometer: ImageView
     private lateinit var cardNextService: View
+    private lateinit var btnMainInfo: ImageView
     private lateinit var tvMainCompTitle: TextView
     private lateinit var pbMainService: ProgressBar
     private lateinit var tvMainRemaining: TextView
@@ -80,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         tvOdometerValue = findViewById(R.id.tv_odometer_value)
         btnEditOdometer = findViewById(R.id.btn_edit_odometer)
         cardNextService = findViewById(R.id.card_next_service)
+        btnMainInfo = findViewById(R.id.btn_main_info)
         tvMainCompTitle = findViewById(R.id.tv_main_comp_title)
         pbMainService = findViewById(R.id.pb_main_service)
         tvMainRemaining = findViewById(R.id.tv_main_remaining)
@@ -220,6 +222,26 @@ class MainActivity : AppCompatActivity() {
 
             val disabledText = if (!topRemainder.isEnabled) " (Pengingat nonaktif)" else ""
             tvMainSchedule.text = "Jadwal: ${ServiceCalculator.formatScheduleText(topRemainder)}$disabledText"
+
+            btnMainInfo.setOnClickListener { view ->
+                val popup = PopupMenu(this, view)
+                popup.menu.add("Detail Servis")
+                popup.setOnMenuItemClickListener { menuItem ->
+                    if (menuItem.title == "Detail Servis") {
+                        val recordId = topRemainder.record?.id
+                        if (recordId != null) {
+                            val intent = Intent(this, DetailActivity::class.java).apply {
+                                putExtra("service_id", recordId)
+                            }
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Belum ada riwayat servis untuk komponen ini", Toast.LENGTH_SHORT).show()
+                        }
+                        true
+                    } else false
+                }
+                popup.show()
+            }
 
             btnRecordMainService.setOnClickListener {
                 val intent = Intent(this, TambahServisActivity::class.java).apply {
